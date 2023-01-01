@@ -1,0 +1,112 @@
+@startuml Dominion 
+
+Class Action 
+Class Action_Reaction
+Class Action_Attaque
+abstract class Cartes {
+
+    nom : String
+    cout : int
+    mapReserve: map
+    couleur String
+
+}
+Class Defausse{
+}
+Class Deck{
+     
+    void piocher()
+}
+abstract class Effet{ 
+
+    void appliquer_effet()
+}
+class IA
+class Humain{
+
+    pseudo : String 
+    
+}
+abstract class Joueur {
+    
+    id : int
+    void acheter()
+    
+    void defausser(Main M)
+    void jouer_carte(Cartes C)
+
+}
+note right of Joueur::acheter 
+    On propose directement au joueur les cartes achetables à partir de l'argent dans sa main
+end note
+Class Main 
+Class Malédiction{ 
+
+    valeur : int
+    
+}
+Class Partie {
+
+    void  lancer()
+
+}
+Class Plateau
+Class Rebut 
+abstract class  Royaume{
+
+    action : int 
+    achat : int 
+    argent : int 
+    pioche : int
+
+}
+Class Royaume_Victoire
+Class Trésor {
+
+    valeur : int
+    
+}
+Class Victoire {
+
+    valeur int
+    
+}
+
+
+
+
+Cartes   <|-- Royaume
+Cartes   <|-- Victoire
+Cartes   <|-- Trésor
+Cartes   <|-- Malédiction
+Effet    <|-- Action
+Effet    <|-- Action_Reaction
+Effet    <|-- Action_Attaque
+Effet    <|-- Royaume_Victoire
+Deck      "1 sonDeck"    o--   "* sesCartes" Cartes 
+Defausse  "1 saDefausse" o--   "* sesCartes" Cartes
+Joueur   --   Rebut
+Joueur   <|-- IA 
+Joueur   <|-- Humain
+Joueur   "1 sonJoueur"    --   "1 saMain" Main
+Joueur   "1 sonJoueur"    --   "1 sonDeck" Deck
+Joueur   "1 sonJoueur"    --   "1 uneDefausse" Defausse
+Main     "1 saMain"      o--  "* sesCartes"  Cartes 
+Partie   "1 saPartie"     --  "2..4 sesJoueurs" Joueur 
+Partie   "1 saPartie"     --  "1 sonRebut" Rebut
+Partie   "1 saPartie"     --  "308 sesCartes" Cartes
+Royaume  <|-- Action
+Royaume  <|-- Action_Reaction
+Royaume  <|-- Action_Attaque
+Royaume  <|-- Royaume_Victoire
+
+
+
+
+
+
+
+
+
+
+@enduml
