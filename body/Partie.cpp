@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../header/Partie.hpp"
+#include "Partie.hpp"
 #include <string>
 
 Partie::Partie(std::string name)

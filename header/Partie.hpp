@@ -6,7 +6,9 @@ class Partie
 private:
     std::string nom;
 public:
-    Partie();
+    Partie(std::string name);
     ~Partie();
-    void demarrer_partie();
+    void Partie::demarrer_partie();
 };
+
+#endif

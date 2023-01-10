@@ -1,5 +1,7 @@
 #ifndef JOUEUR_H
 #define JOUEUR_H
+#include "Main.hpp"
+#include "Cartes.hpp"
 
 class Joueur
 {
@@ -8,9 +10,10 @@ private:
 public:
     Joueur();
     ~Joueur();
-    virtual void acheter();
-    virtual void defausser(Main M);
-    virtual void jouer_carte(Cartes C);
+    static int Joueur::getid();
+    virtual void Joueur::acheter();
+    virtual void Joueur::defausser(Main M);
+    virtual void Joueur::jouer_carte(Cartes C);
 };
 
 

@@ -7,11 +7,11 @@ class Cartes
 private:
     std::string nom;
     int cout;
-    static std::map<Cartes,int> reservecarte;
+    static std::map<Cartes*,int> reservecarte;
 public:
     Cartes(std::string nom, int cout);
     ~Cartes();
-    std::map init_carte();
+    void Cartes::init_carte(int i);
 };
 
 
